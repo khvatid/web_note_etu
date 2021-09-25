@@ -4,10 +4,11 @@
     android:orientation="horizontal"
     android:padding="5dp"
     android:layout_width="match_parent"
-    android:layout_height="40dp">
+    android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/user_image_view"
         android:src="@mipmap/ic_launcher"
+        android:contentDescription="Логотип сети"
         android:layout_width="30dp"
         android:layout_height="30dp" />
     <TextView
@@ -28,6 +29,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:contentDescription="Аватар пользователя"
             android:layout_gravity="right"/>
     </LinearLayout>
 </LinearLayout>
