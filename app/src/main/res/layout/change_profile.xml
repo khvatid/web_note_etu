@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/user_image_view"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="Аватар пользователя"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@id/user_name_text_view"
+        android:layout_gravity="center_horizontal"
+        android:text="Имя"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@id/user_description_text_view"
+        android:layout_gravity="center_horizontal"
+        android:text="Описание"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Подтвердить изменения"
+        android:layout_marginTop="8dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background=""
+        android:textColor="@color/black"
+        android:text="Удалить профиль"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>
