@@ -3,17 +3,12 @@ package com.to_panelka.webnote;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuth.AuthStateListener;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class AuthenticationActivity extends AppCompatActivity implements View.OnClickListener{
 
 
   private FirebaseAuth mAuth;
@@ -24,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    setContentView(R.layout.activity_authentication);
 
     mAuth = FirebaseAuth.getInstance();
 
@@ -62,9 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this,
         task -> {
           if(task.isSuccessful())
-          Toast.makeText(MainActivity.this, "Sign in Complite", Toast.LENGTH_SHORT).show();
+          Toast.makeText(AuthenticationActivity.this, "Sign in Complite", Toast.LENGTH_SHORT).show();
           else
-            Toast.makeText(MainActivity.this,"Sign in Faild", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AuthenticationActivity.this,"Sign in Faild", Toast.LENGTH_SHORT).show();
         });
   }
   public  void registration(String email,String password)
@@ -72,9 +67,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this,
         task -> {
           if(task.isSuccessful())
-            Toast.makeText(MainActivity.this, "Log in Complite", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AuthenticationActivity.this, "Log in Complite", Toast.LENGTH_SHORT).show();
           else
-            Toast.makeText(MainActivity.this,"Log in Faild", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AuthenticationActivity.this,"Log in Faild", Toast.LENGTH_SHORT).show();
         });
   }
 

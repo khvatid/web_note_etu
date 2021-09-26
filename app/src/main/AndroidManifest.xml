@@ -8,10 +8,11 @@
     android:label="@string/app_name"
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
-    android:theme="@style/Theme.WebNote">
+    android:theme="@style/Theme.WebNote"
+    android:fullBackupOnly="true">
     <activity
       android:exported="true"
-      android:name=".MainActivity">
+      android:name=".AuthenticationActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
