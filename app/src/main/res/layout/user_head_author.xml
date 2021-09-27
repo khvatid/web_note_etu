@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 <TextView
-    android:id="@id/user_name_text_view"
+    android:id="@+id/user_name"
     android:layout_gravity="center_horizontal"
     android:text="Имя"
     android:textColor="@color/black"
@@ -23,7 +23,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"/>
     <TextView
-        android:id="@id/user_description_text_view"
+        android:id="@+id/user_description"
         android:layout_gravity="center_horizontal"
         android:text="Описание"
         android:textColor="@color/black"
@@ -38,13 +38,13 @@
         android:layout_marginTop="5dp"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@id/user_followers_text_view"
+            android:id="@+id/user_followers"
             android:text="Читатели"
             android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:id="@id/user_following_text_view"
+            android:id="@+id/user_following"
             android:text="Читает"
             android:layout_marginStart="150dp"
             android:textSize="16sp"
