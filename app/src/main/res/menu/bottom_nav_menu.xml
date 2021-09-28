@@ -4,11 +4,13 @@
   <item android:id="@+id/navigation_feed"
   android:title="Feed" />
 
+  <item android:id="@+id/navigation_new_post"
+    android:title="New Post" />
+
   <item android:id="@+id/navigation_profile"
     android:title="Profile" />
 
-  <item android:id="@+id/navigation_new_post"
-    android:title="New Post" />
+
 
 
 </menu>

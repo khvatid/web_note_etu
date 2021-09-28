@@ -2,8 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
-  android:id="@+id/mobile_navigation"
-  app:startDestination="@layout/fragment_feed">
+  android:id="@+id/navigation_bottom_menu"
+  app:startDestination="@id/navigation_feed">
 
   <fragment
     android:id="@+id/navigation_feed"

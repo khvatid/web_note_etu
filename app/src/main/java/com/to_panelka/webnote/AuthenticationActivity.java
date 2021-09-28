@@ -1,5 +1,6 @@
 package com.to_panelka.webnote;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,7 +27,8 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
     mAuthListener = firebaseAuth -> {
       FirebaseUser user = firebaseAuth.getCurrentUser();
       if(user != null){
-
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
       }
       else {
 
@@ -37,7 +39,11 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
 
     findViewById(R.id.btn_sign_in).setOnClickListener(this);
     findViewById(R.id.btn_registration).setOnClickListener(this);
-
+      FirebaseUser user = mAuth.getCurrentUser();
+    if(user != null){
+      Intent intent = new Intent(this,MainActivity.class);
+      startActivity(intent);
+    }
   }
 
   @Override
@@ -56,9 +62,12 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
   {
     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this,
         task -> {
-          if(task.isSuccessful())
-          Toast.makeText(AuthenticationActivity.this, "Sign in Complite", Toast.LENGTH_SHORT).show();
-          else
+          if(task.isSuccessful()) {
+            Toast.makeText(AuthenticationActivity.this, "Sign in Complite", Toast.LENGTH_SHORT)
+                .show();
+             Intent intent = new Intent(this, MainActivity.class);
+              startActivity(intent);
+          } else
             Toast.makeText(AuthenticationActivity.this,"Sign in Faild", Toast.LENGTH_SHORT).show();
         });
   }
@@ -66,9 +75,12 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
   {
     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this,
         task -> {
-          if(task.isSuccessful())
-            Toast.makeText(AuthenticationActivity.this, "Log in Complite", Toast.LENGTH_SHORT).show();
-          else
+          if(task.isSuccessful()) {
+            Toast.makeText(AuthenticationActivity.this, "Log in Complite", Toast.LENGTH_SHORT)
+                .show();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+          } else
             Toast.makeText(AuthenticationActivity.this,"Log in Faild", Toast.LENGTH_SHORT).show();
         });
   }
