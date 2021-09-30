@@ -2,12 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
   <item android:id="@+id/navigation_feed"
+    android:icon="@drawable/ic_menu_feed_24"
   android:title="Feed" />
 
   <item android:id="@+id/navigation_new_post"
     android:title="New Post" />
 
   <item android:id="@+id/navigation_profile"
+    android:icon="@drawable/ic_menu_profile_24"
     android:title="Profile" />
 
 

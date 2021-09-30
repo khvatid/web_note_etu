@@ -1,4 +1,4 @@
-package com.to_panelka.webnote.ui.pojo;
+package com.to_panelka.webnote.pojo;
 
 public class User {
     private long id;
