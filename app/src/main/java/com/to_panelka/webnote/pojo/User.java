@@ -1,5 +1,7 @@
 package com.to_panelka.webnote.pojo;
 
+import androidx.annotation.Nullable;
+
 public class User {
     private long id;
     private String imageUrl;
