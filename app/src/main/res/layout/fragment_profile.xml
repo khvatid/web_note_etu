@@ -6,6 +6,7 @@
   android:layout_height="match_parent"
   tools:context=".ui.profile.ProfileFragment">
 
+
   <RelativeLayout
     android:id="@+id/profile_view"
     android:layout_width="match_parent"
@@ -33,7 +34,7 @@
 
       android:layout_alignParentEnd="true"
       android:layout_toEndOf="@+id/profile_user_image"
-      android:text="Name"
+      android:text="name"
       android:textColor="@color/black"
       android:textSize="16sp" />
 
