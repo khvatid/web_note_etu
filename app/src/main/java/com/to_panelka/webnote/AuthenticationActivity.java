@@ -28,20 +28,24 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
       FirebaseUser user = firebaseAuth.getCurrentUser();
       if(user != null){
         Intent intent = new Intent(this,MainActivity.class);
+
         startActivity(intent);
       }
       else {
 
       }
     };
-    ETmail = findViewById(R.id.et_email);
-    ETpassword = findViewById(R.id.et_password);
+    //ETmail = findViewById(R.id.et_email);
+    //ETpassword = findViewById(R.id.et_password);
 
-    findViewById(R.id.btn_sign_in).setOnClickListener(this);
-    findViewById(R.id.btn_registration).setOnClickListener(this);
+    //findViewById(R.id.btn_sign_in).setOnClickListener(this);
+    //findViewById(R.id.btn_registration).setOnClickListener(this);
       FirebaseUser user = mAuth.getCurrentUser();
     if(user != null){
       Intent intent = new Intent(this,MainActivity.class);
+      intent.putExtra(mAuth.getCurrentUser().getUid(),user.getUid());
+      //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+      //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       startActivity(intent);
     }
   }
@@ -65,8 +69,7 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
           if(task.isSuccessful()) {
             Toast.makeText(AuthenticationActivity.this, "Sign in Complite", Toast.LENGTH_SHORT)
                 .show();
-             Intent intent = new Intent(this, MainActivity.class);
-              startActivity(intent);
+
           } else
             Toast.makeText(AuthenticationActivity.this,"Sign in Faild", Toast.LENGTH_SHORT).show();
         });
@@ -78,8 +81,7 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
           if(task.isSuccessful()) {
             Toast.makeText(AuthenticationActivity.this, "Log in Complite", Toast.LENGTH_SHORT)
                 .show();
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+
           } else
             Toast.makeText(AuthenticationActivity.this,"Log in Faild", Toast.LENGTH_SHORT).show();
         });

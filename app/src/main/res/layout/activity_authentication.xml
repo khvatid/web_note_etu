@@ -6,61 +6,15 @@
   android:layout_height="match_parent"
   tools:context=".AuthenticationActivity">
 
-  <EditText
-    android:id="@+id/et_email"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:ems="15"
-    android:autofillHints="emailAddress"
-    android:hint="Email"
-    android:inputType="textEmailAddress"
-    android:minHeight="48dp"
-    app:layout_constraintBottom_toTopOf="@+id/et_password"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.082"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="1.0" />
-  <EditText
-    android:id="@+id/et_password"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="280dp"
-    android:ems="15"
-    android:hint="password"
-    android:autofillHints="password"
-    android:inputType="textPassword"
-    android:minHeight="48dp"
-    app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.082"
-    app:layout_constraintStart_toStartOf="parent" />
-  <LinearLayout
-    android:id="@+id/linearLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
+  <androidx.fragment.app.FragmentContainerView
+    android:id="@+id/fragmentContainerView"
+    android:layout_width="409dp"
+    android:layout_height="715dp"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    app:defaultNavHost="true"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent">
-    <Button
-      android:id="@+id/btn_sign_in"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_weight="1"
-      android:layout_marginStart="10dp"
-      android:layout_marginEnd="10dp"
-      style="@android:attr/buttonBarButtonStyle"
-      android:text="Sign in" />
-    <Button
-      android:id="@+id/btn_registration"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_weight="1"
-      android:layout_marginStart="10dp"
-      android:layout_marginEnd="10dp"
-      style="@android:attr/buttonBarButtonStyle"
-      android:text="Log in" />
-  </LinearLayout>
-
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:navGraph="@navigation/navigation_authentication" />
 </androidx.constraintlayout.widget.ConstraintLayout>
