@@ -10,18 +10,27 @@
         android:id="@+id/comments"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintStart_toStartOf="parent"></androidx.recyclerview.widget.RecyclerView>
+
     <EditText
         android:id="@+id/new_comment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/comments"/>
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/new_comment"
-        app:layout_constraintTop_toBottomOf="@id/new_comment"
-        android:text="post"/>
+        app:layout_constraintRight_toLeftOf="@id/new_comment_button"
+        app:layout_constraintTop_toBottomOf="@id/comments"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="Your comment"
+        android:layout_margin="8dp"/>
+
+    <Button
+
+        android:id="@+id/new_comment_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="post"
+        app:layout_constraintTop_toBottomOf="@id/comments"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="8dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
