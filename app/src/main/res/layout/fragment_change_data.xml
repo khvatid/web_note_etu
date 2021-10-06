@@ -10,7 +10,7 @@
     android:gravity="center_horizontal">
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/cd_et_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="emailAddress"
@@ -18,7 +18,7 @@
         android:hint="Email"
         android:inputType="textEmailAddress"/>
     <EditText
-        android:id="@+id/et_old_password"
+        android:id="@+id/cd_et_old_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="password"
@@ -26,7 +26,7 @@
         android:hint="Old password"
         android:inputType="textPassword"/>
     <EditText
-        android:id="@+id/et_new_password"
+        android:id="@+id/cd_et_new_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="password"
@@ -34,7 +34,7 @@
         android:hint="New password"
         android:inputType="textPassword"/>
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/cd_et_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="password"
@@ -42,7 +42,7 @@
         android:hint="Name"
         android:inputType="text"/>
     <EditText
-        android:id="@+id/et_description"
+        android:id="@+id/cd_et_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="password"
@@ -50,11 +50,11 @@
         android:hint="Description"
         android:inputType="text"/>
     <Button
-        android:id="@+id/btn_sign_in"
+        android:id="@+id/cd_login_btn_sign_in"
         style="@android:style/Widget.Material.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign in"
         android:textSize="24sp"/>
-    />
+
 </LinearLayout>

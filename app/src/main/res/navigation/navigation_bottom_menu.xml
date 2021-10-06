@@ -21,7 +21,11 @@
     android:id="@+id/navigation_profile"
     android:label="Profile"
     android:name="com.to_panelka.webnote.ui.profile.ProfileFragment"
-    tools:layout="@layout/fragment_profile"/>
+    tools:layout="@layout/fragment_profile">
+    <action
+      android:id="@+id/action_navigation_profile_to_navigation_new_post"
+      app:destination="@id/navigation_new_post" />
+  </fragment>
 
 
 </navigation>

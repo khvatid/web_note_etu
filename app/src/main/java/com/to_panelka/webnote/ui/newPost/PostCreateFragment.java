@@ -14,6 +14,8 @@ public class PostCreateFragment extends Fragment {
 
   private PostCreateViewModel mViewModel;
 
+
+
   public static PostCreateFragment newInstance() {
     return new PostCreateFragment();
   }

@@ -12,6 +12,7 @@
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/actions_with_post.xml" value="0.16182432432432434" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/activity_authentication.xml" value="0.16182432432432434" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/activity_author_buttons.xml" value="0.25" />
+        <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/activity_login.xml" value="0.15675675675675677" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/activity_registration.xml" value="0.12398648648648648" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/add_post.xml" value="0.16182432432432434" />
@@ -20,8 +21,10 @@
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_change_data.xml" value="0.25" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_comments.xml" value="0.25" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_feed.xml" value="0.16824324324324325" />
-        <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_post_create.xml" value="0.15555555555555556" />
-        <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_login.xml" value="0.33" />
+        <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_post_create.xml" value="0.22" />
+        <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_register.xml" value="0.22709030100334449" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/item_post.xml" value="0.33" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/main_head.xml" value="0.16013513513513514" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/post_author.xml" value="0.16182432432432434" />

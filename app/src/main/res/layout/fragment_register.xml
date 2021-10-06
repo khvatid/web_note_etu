@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+  tools:context=".ui.registration.RegisterFragment">
 
         <EditText
-            android:id="@+id/et_email"
+            android:id="@+id/reg_et_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autofillHints="emailAddress"
@@ -18,7 +18,7 @@
             android:hint="Email"
             android:inputType="textEmailAddress"/>
         <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/reg_et_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autofillHints="password"
@@ -26,7 +26,7 @@
             android:hint="password"
             android:inputType="textPassword"/>
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/reg_et_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="password"
@@ -34,7 +34,7 @@
         android:hint="Name"
         android:inputType="textPassword"/>
     <EditText
-        android:id="@+id/et_description"
+        android:id="@+id/reg_et_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="password"
@@ -42,7 +42,7 @@
         android:hint="Description"
         android:inputType="textPassword"/>
         <Button
-            android:id="@+id/btn_sign_in"
+            android:id="@+id/reg_btn_sign_in"
             style="@android:style/Widget.Material.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

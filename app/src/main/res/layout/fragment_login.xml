@@ -4,7 +4,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".AuthenticationActivity">
+  tools:context=".ui.registration.LoginFragment">
 
 
   <LinearLayout
@@ -18,64 +18,46 @@
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintVertical_bias="0.184">
     <EditText
-      android:id="@+id/et_fullName"
-      android:autofillHints="Full Name"
-      android:hint="Full Name"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:ems="15"
-      android:visibility="gone"/>
-    <EditText
-      android:id="@+id/et_email"
+      android:id="@+id/login_et_email"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:autofillHints="emailAddress"
       android:ems="15"
       android:hint="Email"
-      android:inputType="textEmailAddress"/>
+      android:inputType="textEmailAddress" />
     <EditText
-      android:id="@+id/et_login"
-      android:hint="Login"
-      android:autofillHints="username"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:ems="15"
-      android:visibility="gone"/>
-    <EditText
-      android:id="@+id/et_password"
+      android:id="@+id/login_et_password"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:autofillHints="password"
       android:ems="15"
       android:hint="password"
-      android:inputType="textPassword"/>
+      android:inputType="textPassword" />
 
   </LinearLayout>
   <Button
-    android:id="@+id/btn_sign_in"
+    android:id="@+id/login_btn_sign_in"
     style="@android:style/Widget.Material.Button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
 
-    android:layout_marginTop="36dp"
-    android:layout_marginStart="80dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginStart="56dp"
     android:text="Sign in"
     android:textSize="24sp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/auth_liner" />
   <Button
-    android:id="@+id/btn_registration"
+    android:id="@+id/login_btn_registration"
     style="@style/Widget.MaterialComponents.Button.TextButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_weight="1"
-    android:layout_marginBottom="416dp"
+
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="100dp"
     android:text="Log in"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="@+id/auth_liner"
-    app:layout_constraintHorizontal_bias="0.246"
-    app:layout_constraintStart_toEndOf="@+id/btn_sign_in"
-    app:layout_constraintTop_toBottomOf="@+id/auth_liner"
-    app:layout_constraintVertical_bias="0.854" />
+    app:layout_constraintStart_toEndOf="@+id/login_btn_sign_in"
+    app:layout_constraintTop_toBottomOf="@+id/auth_liner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
