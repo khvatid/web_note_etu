@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
-    private static final String TWITTER_RESPONSE_FORMAT="EEE MMM dd HH:mm:ss ZZZZZ yyyy"; // Thu Oct 26 07:31:08 +0000 2017
+    private static final String POST_RESPONSE_FORMAT="EEE MMM dd HH:mm:ss ZZZZZ yyyy"; // Thu Oct 26 07:31:08 +0000 2017
     private static final String MONTH_DAY_FORMAT = "MMM d"; // Oct 26
 
     private List<PostModel> PostList = new ArrayList<>();
@@ -55,7 +55,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             creationDateTextView.setText(creationDateFormatted);
         }
         private String getFormattedDate(String rawDate) {
-            SimpleDateFormat utcFormat = new SimpleDateFormat(TWITTER_RESPONSE_FORMAT, Locale.ROOT);
+            SimpleDateFormat utcFormat = new SimpleDateFormat(POST_RESPONSE_FORMAT, Locale.ROOT);
             SimpleDateFormat displayedFormat = new SimpleDateFormat(MONTH_DAY_FORMAT, Locale.getDefault());
             try {
                 Date date = utcFormat.parse(rawDate);
