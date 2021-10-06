@@ -6,6 +6,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,7 @@ public class ProfileFragment extends Fragment {
 
   private ProfileViewModel mViewModel;
   FirebaseAuth auth;
+  private RecyclerView PostsRecyclerView;
 
   public static ProfileFragment newInstance() {
     return new ProfileFragment();
@@ -25,6 +29,7 @@ public class ProfileFragment extends Fragment {
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
+    initRecyclerView();
     return inflater.inflate(R.layout.fragment_profile, container, false);
 
 
@@ -37,5 +42,7 @@ public class ProfileFragment extends Fragment {
 
     // TODO: Use the ViewModel
   }
-
+  private void initRecyclerView() {
+    PostsRecyclerView = PostsRecyclerView.findViewById(R.id.Users_posts);
+  }
 }
