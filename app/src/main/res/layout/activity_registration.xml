@@ -29,18 +29,18 @@
         android:id="@+id/et_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:autofillHints="password"
+        android:autofillHints="name"
         android:ems="15"
         android:hint="Name"
-        android:inputType="textPassword"/>
+        android:inputType="textPersonName"/>
     <EditText
         android:id="@+id/et_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:autofillHints="password"
+        android:autofillHints="description"
         android:ems="15"
         android:hint="Description"
-        android:inputType="textPassword"/>
+        android:inputType="textNoSuggestions"/>
         <Button
             android:id="@+id/btn_sign_in"
             style="@android:style/Widget.Material.Button"
