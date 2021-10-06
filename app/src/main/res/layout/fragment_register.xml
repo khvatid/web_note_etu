@@ -32,7 +32,7 @@
         android:autofillHints="password"
         android:ems="15"
         android:hint="Name"
-        android:inputType="textPassword"/>
+        android:inputType="textPersonName"/>
     <EditText
         android:id="@+id/reg_et_description"
         android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
         android:autofillHints="password"
         android:ems="15"
         android:hint="Description"
-        android:inputType="textPassword"/>
+        android:inputType="text"/>
         <Button
             android:id="@+id/reg_btn_sign_in"
             style="@android:style/Widget.Material.Button"

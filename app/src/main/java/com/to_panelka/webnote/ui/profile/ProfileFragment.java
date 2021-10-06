@@ -16,6 +16,9 @@ import androidx.navigation.NavAction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +27,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.to_panelka.webnote.MainActivity;
 import com.to_panelka.webnote.R;
+import com.to_panelka.webnote.adapter.PostAdapter;
+
 import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
@@ -36,9 +41,8 @@ public class ProfileFragment extends Fragment {
   private Button createPostButton;
   NavController navController;
 
-
-  public ProfileFragment() {
-  }
+  private RecyclerView postsRecyclerView;
+  private PostAdapter postAdapter;
 
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -77,6 +81,10 @@ public class ProfileFragment extends Fragment {
 
 
   }
-
+  private void initRecyclerView() {
+    postsRecyclerView = postsRecyclerView.findViewById(R.id.profile_buttons_container);
+    postAdapter = new PostAdapter();
+    postsRecyclerView.setAdapter(postAdapter);
+  }
 
 }
