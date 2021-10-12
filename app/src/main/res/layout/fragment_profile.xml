@@ -132,7 +132,8 @@
   <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    android:id="@+id/profile_post_container"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/profile_buttons_container"
     tools:layout_editor_absoluteX="1dp" />

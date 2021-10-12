@@ -25,10 +25,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.to_panelka.webnote.MainActivity;
 import com.to_panelka.webnote.R;
 import com.to_panelka.webnote.adapter.PostAdapter;
 
+import com.to_panelka.webnote.model.PostModel;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
@@ -41,8 +46,7 @@ public class ProfileFragment extends Fragment {
   private Button createPostButton;
   NavController navController;
 
-  private RecyclerView postsRecyclerView;
-  private PostAdapter postAdapter;
+  private ArrayList<PostModel> postModels = new ArrayList<PostModel>();
 
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -56,6 +60,11 @@ public class ProfileFragment extends Fragment {
     userName = view.findViewById(R.id.profile_user_name);
     userDescription = view.findViewById(R.id.profile_user_description);
     createPostButton = view.findViewById(R.id.profile_btn_create_post);
+    RecyclerView recyclerView = (RecyclerView) view.findViewById((R.id.profile_post_container));
+    PostAdapter adapter = new PostAdapter(getActivity(), postModels);
+    recyclerView.setAdapter(adapter);
+
+
     navController = Navigation.findNavController(view);
     createPostButton.setOnClickListener(new OnClickListener() {
       @Override
@@ -63,7 +72,6 @@ public class ProfileFragment extends Fragment {
          navController.navigate(R.id.action_navigation_profile_to_navigation_new_post);
       }
     });
-
     auth = FirebaseAuth.getInstance();
     firestore = FirebaseFirestore.getInstance();
     firestore.collection("Users").document(Objects.requireNonNull(auth.getCurrentUser()).getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -80,11 +88,24 @@ public class ProfileFragment extends Fragment {
     });
 
 
+
+    /*firestore.collection("Posts").whereEqualTo("idUser", auth.getCurrentUser()).get().addOnCompleteListener(
+        new OnCompleteListener<QuerySnapshot>() {
+          @Override
+          public void onComplete(@NonNull Task<QuerySnapshot> task) {
+            if(task.isSuccessful())
+            {
+              for (QueryDocumentSnapshot document: task.getResult()) {
+                postModels.add(new PostModel(document.getId(),document.get("idUser").toString(),document.get("textPost").toString(),document.get("timePublish").toString()));
+              }
+            }
+          }
+        });*/
+
+
   }
-  private void initRecyclerView() {
-    postsRecyclerView = postsRecyclerView.findViewById(R.id.profile_buttons_container);
-    postAdapter = new PostAdapter();
-    postsRecyclerView.setAdapter(postAdapter);
-  }
+
+
+
 
 }

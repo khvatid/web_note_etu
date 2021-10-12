@@ -1,5 +1,6 @@
 package com.to_panelka.webnote.adapter;
 
+import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,66 +19,47 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
-    private static final String TWITTER_RESPONSE_FORMAT="EEE MMM dd HH:mm:ss ZZZZZ yyyy"; // Thu Oct 26 07:31:08 +0000 2017
-    private static final String MONTH_DAY_FORMAT = "MMM d"; // Oct 26
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
-    private List<PostModel> PostList = new ArrayList<>();
+    private final LayoutInflater inflater;
+    private final List<PostModel> posts;
 
-    public void setItems(Collection<PostModel> posts) {
-        PostList.addAll(posts);
-        notifyDataSetChanged();
-    }
-
-    public void clearItems() {
-        PostList.clear();
-        notifyDataSetChanged();
-    }
-
-    class PostViewHolder extends RecyclerView.ViewHolder {
-        private TextView nameTextView;
-        private TextView creationDateTextView;
-        private TextView contentTextView;
-
-        public PostViewHolder(View itemView) {
-            super(itemView);
-            nameTextView = itemView.findViewById(R.id.post_user_nickname);
-            creationDateTextView = itemView.findViewById(R.id.post_user_time);
-            contentTextView = itemView.findViewById(R.id.post_user_text);
-        }
-        public void bind(PostModel post) {
-            nameTextView.setText(post.getUserId());
-            contentTextView.setText(post.getText());
-
-            String creationDateFormatted = getFormattedDate(post.getTime());
-            creationDateTextView.setText(creationDateFormatted);
-        }
-        private String getFormattedDate(String rawDate) {
-            SimpleDateFormat utcFormat = new SimpleDateFormat(TWITTER_RESPONSE_FORMAT, Locale.ROOT);
-            SimpleDateFormat displayedFormat = new SimpleDateFormat(MONTH_DAY_FORMAT, Locale.getDefault());
-            try {
-                Date date = utcFormat.parse(rawDate);
-                return displayedFormat.format(date);
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-    @Override
-    public PostViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_post, parent, false);
-        return new PostViewHolder(view);
+    public PostAdapter (Context context, List<PostModel> posts)
+    {
+        this.posts = posts;
+        this.inflater = LayoutInflater.from(context);
     }
 
     @Override
-    public void onBindViewHolder(PostViewHolder holder, int position) {
-        holder.bind(PostList.get(position));
+    public PostAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View view = inflater.inflate(R.layout.item_post, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(PostAdapter.ViewHolder holder, int position) {
+        PostModel postModel = posts.get(position);
+        holder.idUser.setText(postModel.getUserId());
+        holder.textPost.setText(postModel.getText());
+        holder.time.setText(postModel.getTime());
     }
 
     @Override
     public int getItemCount() {
-        return PostList.size();
+        return posts.size();
     }
 
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+        final TextView idUser;
+        final TextView textPost;
+        final TextView time;
+
+        ViewHolder(View view){
+            super(view);
+            idUser = (TextView)view.findViewById(R.id.post_user_nickname);
+            textPost = (TextView)view.findViewById(R.id.post_user_text);
+            time = (TextView)view.findViewById(R.id.post_user_time);
+        }
+    }
 }

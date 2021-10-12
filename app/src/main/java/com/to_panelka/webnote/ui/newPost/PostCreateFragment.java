@@ -1,37 +1,33 @@
 package com.to_panelka.webnote.ui.newPost;
 
-import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.to_panelka.webnote.R;
 
+import com.to_panelka.webnote.model.PostModel;
 import java.util.HashMap;
 import java.util.Objects;
 
 public class PostCreateFragment extends Fragment {
 
-  private String text, userid;
+  private String userid;
   private EditText et_text;
-  private Button post;
-  Timestamp time;
+  private Button btnPost;
   private FirebaseAuth firebaseAuth;
   private FirebaseFirestore firestore;
   private FirebaseAuth auth;
@@ -54,45 +50,46 @@ public class PostCreateFragment extends Fragment {
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-
-    firebaseAuth = FirebaseAuth.getInstance();
     firestore = FirebaseFirestore.getInstance();
 
     et_text = view.findViewById(R.id.create_post_et_view);
-    post = view.findViewById(R.id.create_post_btn);
+    btnPost = view.findViewById(R.id.create_post_btn);
 
-    post.setOnClickListener(new View.OnClickListener() {
+    btnPost.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
 
-        text = et_text.getText().toString();
-        time = Timestamp.now();
-        auth = FirebaseAuth.getInstance();
-        firestore = FirebaseFirestore.getInstance();
-        firestore.collection("Users").document(Objects.requireNonNull(auth.getCurrentUser()).getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-          @Override
-          public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+        AddPost(et_text.getText().toString());
 
-            if (task.isSuccessful()) {
-
-              DocumentSnapshot firebaseDoc = task.getResult();
-              userid = firebaseDoc.getString("userid");
-            }
-          }
-        });
-        AddPost(text, time, userid);
       }
     });
   }
-    private void AddPost(String text, Timestamp time, String userid) {
-           /* HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("", postid);
-            hashMap.put("", userid);
-            hashMap.put("", text);
-            hashMap.put("",time);*/
+    private void AddPost(String text) {
 
+      auth = FirebaseAuth.getInstance();
+      firestore = FirebaseFirestore.getInstance();
+      userid = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+      Timestamp time = Timestamp.now();
 
+      HashMap<String, Object> hashMap = new HashMap<>();
+      hashMap.put("idPost", userid);
+      hashMap.put("idUser", userid);
+      hashMap.put("textPost", text);
+      hashMap.put("timePublish",time);
 
-  }
+      HashMap<String, Object> mapComment = new HashMap<>();
+      mapComment.put("userid", new String("testUser"));
+      mapComment.put("commentText",new String("testText"));
+      hashMap.put("comments", mapComment);
+      firestore.collection("Posts").add(hashMap).addOnSuccessListener(
+        new OnSuccessListener<DocumentReference>() {
+        @Override
+        public void onSuccess(DocumentReference documentReference) {
+          documentReference.update("idPost",documentReference.getId());
+          Toast.makeText(getContext(), "id" + documentReference.getId(), Toast.LENGTH_SHORT).show();
+        }
+      });
+      et_text.setText("");
+    }
 
 }
