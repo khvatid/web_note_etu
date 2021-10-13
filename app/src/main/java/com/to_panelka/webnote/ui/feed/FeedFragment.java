@@ -24,8 +24,6 @@ import java.util.ArrayList;
 public class FeedFragment extends Fragment {
 
   private FeedViewModel mViewModel;
-  private RecyclerView recyclerView;
-  private ArrayList<PostModel> postModels = new ArrayList<>();
   FirestoreRecyclerAdapter<PostModel, ViewHolder> adapter;
 
 

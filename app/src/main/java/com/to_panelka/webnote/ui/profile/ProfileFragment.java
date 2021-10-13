@@ -19,18 +19,23 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.Query.Direction;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.to_panelka.webnote.MainActivity;
 import com.to_panelka.webnote.R;
 import com.to_panelka.webnote.adapter.PostAdapter;
 
+import com.to_panelka.webnote.adapter.PostAdapter.ViewHolder;
 import com.to_panelka.webnote.model.PostModel;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,14 +44,15 @@ import java.util.Objects;
 public class ProfileFragment extends Fragment {
 
   private ProfileViewModel mViewModel;
-  private FirebaseAuth auth;
+  private FirebaseAuth auth = FirebaseAuth.getInstance();
   private FirebaseFirestore firestore;
   private TextView userName;
   private TextView userDescription;
   private Button createPostButton;
+  FirestoreRecyclerAdapter<PostModel, ViewHolder> adapter;
+
   NavController navController;
 
-  private ArrayList<PostModel> postModels = new ArrayList<PostModel>();
 
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -61,8 +67,31 @@ public class ProfileFragment extends Fragment {
     userDescription = view.findViewById(R.id.profile_user_description);
     createPostButton = view.findViewById(R.id.profile_btn_create_post);
     RecyclerView recyclerView = (RecyclerView) view.findViewById((R.id.profile_post_container));
-    PostAdapter adapter = new PostAdapter(getActivity(), postModels);
+    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    Query query = firestore.collection("Posts")
+        .whereEqualTo("idUser",auth.getCurrentUser().getUid())
+        .orderBy("timePublish",Query.Direction.DESCENDING);
+
+    FirestoreRecyclerOptions<PostModel> options = new FirestoreRecyclerOptions.Builder<PostModel>()
+        .setQuery(query,PostModel.class).build();
+
+    adapter = new FirestoreRecyclerAdapter<PostModel, ViewHolder>(options) {
+      @Override
+      protected void onBindViewHolder(@NonNull ViewHolder holder, int position,
+          @NonNull PostModel model) {
+        holder.setTextPost(model.getTextPost(),model.getIdUser(),model.getTimePublish());
+      }
+
+      @NonNull
+      @Override
+      public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_post, parent, false);
+        return new ViewHolder(view);
+      }
+    };
     recyclerView.setAdapter(adapter);
+
+
 
 
     navController = Navigation.findNavController(view);
@@ -105,7 +134,17 @@ public class ProfileFragment extends Fragment {
 
   }
 
+  @Override
+  public void onStart() {
+    super.onStart();
+    adapter.startListening();
+  }
 
+  @Override
+  public void onStop() {
+    super.onStop();
+    adapter.stopListening();
+  }
 
 
 }
