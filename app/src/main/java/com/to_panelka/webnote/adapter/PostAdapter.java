@@ -3,21 +3,14 @@ package com.to_panelka.webnote.adapter;
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
+import com.google.firebase.Timestamp;
 import com.to_panelka.webnote.R;
 import com.to_panelka.webnote.model.PostModel;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Collection;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
@@ -40,9 +33,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(PostAdapter.ViewHolder holder, int position) {
         PostModel postModel = posts.get(position);
-        holder.idUser.setText(postModel.getUserId());
-        holder.textPost.setText(postModel.getText());
-        holder.time.setText(postModel.getTime());
+
     }
 
     @Override
@@ -50,16 +41,25 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         return posts.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-        final TextView idUser;
-        final TextView textPost;
-        final TextView time;
 
-        ViewHolder(View view){
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+        private View defaultView;
+
+        public ViewHolder(View view){
             super(view);
-            idUser = (TextView)view.findViewById(R.id.post_user_nickname);
-            textPost = (TextView)view.findViewById(R.id.post_user_text);
-            time = (TextView)view.findViewById(R.id.post_user_time);
+            defaultView = view;
         }
+        public void setTextPost(String textPost, String idUser, Timestamp time)
+        {
+
+            TextView viewTextPost = defaultView.findViewById(R.id.post_user_text);
+            viewTextPost.setText(textPost);
+            TextView viewIdUser = defaultView.findViewById(R.id.post_user_nickname);
+            viewIdUser.setText(idUser);
+            TextView viewTime = defaultView.findViewById(R.id.post_user_time);
+            viewTime.setText(time.toDate().toString());
+
+        }
+
     }
 }

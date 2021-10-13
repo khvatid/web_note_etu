@@ -1,48 +1,54 @@
 package com.to_panelka.webnote.model;
 
+import com.google.firebase.Timestamp;
+
 public class PostModel {
 
-  String postId;
-  String userId;
-  String text;
-  String time;
+  String idPost;
+  String idUser;
+  String textPost;
+  Timestamp timePublish;
 
-  public void setPostId(String postId) {
-    this.postId = postId;
+  public void setIdPost(String idPost) {
+    this.idPost = idPost;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public void setIdUser(String idUser) {
+    this.idUser = idUser;
   }
 
   public void setText(String text) {
-    this.text = text;
+    this.textPost = text;
   }
 
-  public void setTime(String time) {
-    this.time = time;
+  public void setTimePublish(Timestamp time) {
+    this.timePublish = time;
   }
 
-  public String getPostId() {
-    return postId;
+  public String getIdPost() {
+    return idPost;
   }
 
-  public String getUserId() {
-    return userId;
+  public String getIdUser() {
+    return idUser;
   }
 
-  public String getText() {
-    return text;
+  public String getTextPost() {
+    return textPost;
   }
 
-  public String getTime() {
-    return time;
+  public Timestamp getTimePublish() {
+    return timePublish;
   }
 
-  public PostModel(String postId, String userId, String text, String time) {
-    this.postId = postId;
-    this.userId = userId;
-    this.text = text;
-    this.time = time;
+  public PostModel(String idPost, String idUser, String text, Timestamp time) {
+    this.idPost = idPost;
+    this.idUser = idUser;
+    this.textPost = text;
+    this.timePublish = time;
+  }
+
+  public PostModel(){
+
   }
 }
