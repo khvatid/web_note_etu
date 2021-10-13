@@ -18,7 +18,7 @@
       android:id="@+id/post_user_nickname"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="sosun3000"
+      android:text="@string/s_user_name"
       android:textColor="@color/black"
       android:textSize="16sp"
       app:layout_constraintStart_toEndOf="@+id/post_user_image"
@@ -31,7 +31,7 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="4dp"
       android:layout_marginStart="8dp"
-      android:text="time"
+      android:text="@string/s_time"
       app:layout_constraintStart_toEndOf="@+id/post_user_image"
       app:layout_constraintTop_toBottomOf="@+id/post_user_nickname" />
     <TextView
@@ -40,10 +40,10 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="12dp"
       android:layout_marginStart="4dp"
-      android:text="lfkselk;fslkr;n\naknce rk lsfnlkerg\najfiusgjnslkgjs;lek"
+      android:text="@string/s_description"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      android:textColor="@color/black"
+      android:textColor="@color/purple_500"
       android:textSize="16sp"
       app:layout_constraintTop_toBottomOf="@+id/post_user_image" />
     <Button
@@ -52,6 +52,7 @@
       android:layout_marginTop="8dp"
       android:layout_marginStart="4dp"
       android:text="like"
+
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/post_user_text" />
     <Button
@@ -59,7 +60,8 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:layout_marginEnd="8dp"
-      android:text="comments"
+      android:text="@string/s_comment"
+      style="@style/Widget.MaterialComponents.Button.TextButton"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/post_user_text" />
 

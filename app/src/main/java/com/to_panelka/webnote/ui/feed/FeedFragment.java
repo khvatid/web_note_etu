@@ -1,6 +1,5 @@
 package com.to_panelka.webnote.ui.feed;
 
-import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,20 +10,17 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.Query.Direction;
 import com.to_panelka.webnote.R;
-import com.to_panelka.webnote.adapter.PostAdapter;
-import com.to_panelka.webnote.adapter.PostAdapter.ViewHolder;
+import com.to_panelka.webnote.adapter.PostViewHolder;
 import com.to_panelka.webnote.model.PostModel;
-import java.util.ArrayList;
 
 public class FeedFragment extends Fragment {
 
   private FeedViewModel mViewModel;
-  FirestoreRecyclerAdapter<PostModel, ViewHolder> adapter;
+  FirestoreRecyclerAdapter<PostModel, PostViewHolder> adapter;
 
 
   @Override
@@ -42,18 +38,18 @@ public class FeedFragment extends Fragment {
     FirestoreRecyclerOptions<PostModel> options = new FirestoreRecyclerOptions.Builder<PostModel>()
         .setQuery(query,PostModel.class).build();
 
-      adapter = new FirestoreRecyclerAdapter<PostModel, ViewHolder>(options) {
+      adapter = new FirestoreRecyclerAdapter<PostModel, PostViewHolder>(options) {
       @Override
-      protected void onBindViewHolder(@NonNull ViewHolder holder, int position,
+      protected void onBindViewHolder(@NonNull PostViewHolder holder, int position,
           @NonNull PostModel model) {
         holder.setTextPost(model.getTextPost(),model.getIdUser(),model.getTimePublish());
       }
 
       @NonNull
       @Override
-      public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+      public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_post, parent, false);
-        return new ViewHolder(view);
+        return new PostViewHolder(view);
       }
     };
     recyclerView.setAdapter(adapter);

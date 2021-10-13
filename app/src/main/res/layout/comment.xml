@@ -16,10 +16,10 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:layout_marginLeft="3dp"
-        android:text="Имя пользователя"/>
+        android:text="@string/s_user_name"/>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Текст комментария"/>
+        android:text="@string/s_comment"/>
 </LinearLayout>

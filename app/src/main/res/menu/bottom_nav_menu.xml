@@ -3,14 +3,14 @@
 
   <item android:id="@+id/navigation_feed"
     android:icon="@drawable/ic_menu_feed_24"
-  android:title="Feed" />
+  android:title="@string/s_feed" />
 
   <item android:id="@+id/navigation_new_post"
-    android:title="New Post" />
+    android:title="@string/s_create_post" />
 
   <item android:id="@+id/navigation_profile"
     android:icon="@drawable/ic_menu_profile_24"
-    android:title="Profile" />
+    android:title="@string/s_profile" />
 
 
 
