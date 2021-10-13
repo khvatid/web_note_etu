@@ -1,3 +1,18 @@
 <resources>
   <string name="app_name">WebNote</string>
+  <string name="s_mail">mail</string>
+  <string name="s_password">password</string>
+  <string name="s_user_name">Name</string>
+  <string name="s_description">Description</string>
+  <string name="s_sign_up">Sign up</string>
+  <string name="s_log_in">Log in</string>
+  <string name="s_user_photo">User photo</string>
+  <string name="s_settings">settings</string>
+  <string name="s_create_post">Create post</string>
+  <string name="s_create">create</string>
+  <string name="s_enter_the_text">enter the text</string>
+  <string name="s_comment">Comment</string>
+  <string name="s_time">time</string>
+  <string name="s_profile">Profile</string>
+  <string name="s_feed">Feed</string>
 </resources>
