@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".ui.registration.LoginFragment">
+
+
+  <LinearLayout
+    android:id="@+id/auth_liner"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.184">
+    <EditText
+      android:id="@+id/login_et_email"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:autofillHints="emailAddress"
+      android:ems="15"
+      android:hint="Email"
+      android:inputType="textEmailAddress" />
+    <EditText
+      android:id="@+id/login_et_password"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:autofillHints="password"
+      android:ems="15"
+      android:hint="password"
+      android:inputType="textPassword" />
+
+  </LinearLayout>
+  <Button
+    android:id="@+id/login_btn_sign_in"
+    style="@android:style/Widget.Material.Button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:layout_marginTop="4dp"
+    android:layout_marginStart="56dp"
+    android:text="Sign in"
+    android:textSize="24sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/auth_liner" />
+  <Button
+    android:id="@+id/login_btn_registration"
+    style="@style/Widget.MaterialComponents.Button.TextButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="100dp"
+    android:text="Log in"
+    app:layout_constraintStart_toEndOf="@+id/login_btn_sign_in"
+    app:layout_constraintTop_toBottomOf="@+id/auth_liner" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "309176425525",
+    "project_id": "topanelka-webnote",
+    "storage_bucket": "topanelka-webnote.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309176425525:android:53e60aa46f399c58d0257c",
+        "android_client_info": {
+          "package_name": "com.to_panelka.webnote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309176425525-p787h8mc0vfqhohekqmlgv965g6oelg7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXcZUb5HCuDsuOem9wL5nKratBNQ2_wdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309176425525-p787h8mc0vfqhohekqmlgv965g6oelg7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

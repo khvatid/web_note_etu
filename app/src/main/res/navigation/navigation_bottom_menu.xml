@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/navigation_bottom_menu"
+  app:startDestination="@id/navigation_feed">
+
+  <fragment
+    android:id="@+id/navigation_feed"
+    android:label="Feed"
+    android:name="com.to_panelka.webnote.ui.feed.FeedFragment"
+    tools:layout="@layout/fragment_feed"/>
+
+  <fragment
+    android:id="@+id/navigation_new_post"
+    android:label="New Post"
+    android:name="com.to_panelka.webnote.ui.newPost.PostCreateFragment"
+    tools:layout="@layout/fragment_post_create"/>
+
+  <fragment
+    android:id="@+id/navigation_profile"
+    android:label="Profile"
+    android:name="com.to_panelka.webnote.ui.profile.ProfileFragment"
+    tools:layout="@layout/fragment_profile">
+    <action
+      android:id="@+id/action_navigation_profile_to_navigation_new_post"
+      app:destination="@id/navigation_new_post" />
+  </fragment>
+
+
+</navigation>
