@@ -104,6 +104,8 @@ public class LoginFragment extends Fragment {
 
           Toast.makeText(getContext(), "Signed In", Toast.LENGTH_SHORT).show();
           Intent intent = new Intent(getActivity(),MainActivity.class);
+          intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
           startActivity(intent);
 
         }
@@ -119,6 +121,8 @@ public class LoginFragment extends Fragment {
     if (firebaseAuth.getCurrentUser()!=null) {
 
       Intent intent = new Intent(getActivity(),MainActivity.class);
+      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       startActivity(intent);
 
 
