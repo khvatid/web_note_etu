@@ -56,6 +56,7 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/post_user_text" />
     <Button
+      android:id="@+id/itm_post_btn_comment"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"

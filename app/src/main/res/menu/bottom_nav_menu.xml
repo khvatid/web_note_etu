@@ -6,6 +6,7 @@
   android:title="@string/s_feed" />
 
   <item android:id="@+id/navigation_new_post"
+    android:icon="@drawable/ic_create_post_24"
     android:title="@string/s_create_post" />
 
   <item android:id="@+id/navigation_profile"

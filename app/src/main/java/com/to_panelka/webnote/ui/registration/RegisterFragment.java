@@ -122,7 +122,7 @@ public class RegisterFragment extends Fragment {
 
           HashMap<String, Object> hashMap = new HashMap<>();
 
-          hashMap.put("userid", userid);
+          hashMap.put("idUser", userid);
           hashMap.put("username", name);
           hashMap.put("description",description);
 

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".ui.settingsProfile.SettingsFragment">
+
+  <LinearLayout
+    android:id="@+id/cd_lnr"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <EditText
+      android:id="@+id/cd_et_old_password"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:autofillHints="password"
+      android:ems="15"
+      android:hint="Old password"
+      android:inputType="textPassword"
+      android:minHeight="48dp" />
+    <EditText
+      android:id="@+id/cd_et_new_password"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:autofillHints="password"
+      android:ems="15"
+      android:hint="New password"
+      android:inputType="textPassword"
+      android:minHeight="48dp" />
+    <EditText
+      android:id="@+id/cd_et_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:autofillHints="password"
+      android:ems="15"
+      android:hint="Name"
+      android:inputType="text"
+      android:minHeight="48dp" />
+    <EditText
+      android:id="@+id/cd_et_description"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:autofillHints="password"
+      android:ems="15"
+      android:hint="Description"
+      android:inputType="text"
+      android:minHeight="48dp" />
+    <EditText
+      android:id="@+id/cd_et_email"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:autofillHints="emailAddress"
+      android:ems="15"
+      android:hint="Email"
+      android:inputType="textEmailAddress"
+      android:minHeight="48dp" />
+  </LinearLayout>
+  <Button
+    android:id="@+id/cd_btn_log_out"
+    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="@+id/cd_btn_save"
+    app:layout_constraintHorizontal_bias="0.458"
+    app:layout_constraintStart_toStartOf="@+id/cd_btn_save"
+    app:layout_constraintTop_toBottomOf="@+id/cd_btn_save"
+
+
+    app:layout_constraintVertical_bias="0.126"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Log Out"
+    tools:layout_editor_absoluteX="156dp"
+    tools:layout_editor_absoluteY="473dp" />
+  <Button
+    android:id="@+id/cd_btn_save"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="32dp"
+    android:text="Save"
+    android:textSize="32sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.498"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/cd_lnr" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
