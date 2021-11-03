@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.lifecycle.ViewModelProvider;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,17 +29,9 @@ public class PostCreateFragment extends Fragment {
   private String userid;
   private EditText et_text;
   private Button btnPost;
-  private FirebaseAuth firebaseAuth;
-  private FirebaseFirestore firestore;
-  private FirebaseAuth auth;
-  private String postid;
-
+  private PostCreateViewModel mViewModel;
   public PostCreateFragment() {
     // Required empty public constructor
-  }
-
-  public static PostCreateFragment newInstance() {
-    return new PostCreateFragment();
   }
 
   @Override
@@ -48,48 +41,30 @@ public class PostCreateFragment extends Fragment {
   }
 
   @Override
+  public void onStop() {
+    mViewModel.setPostText(et_text.getText().toString());
+    super.onStop();
+  }
+
+  @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    firestore = FirebaseFirestore.getInstance();
-
+    mViewModel = new ViewModelProvider(this).get(PostCreateViewModel.class);
     et_text = view.findViewById(R.id.create_post_et_view);
     btnPost = view.findViewById(R.id.create_post_btn);
+
+    mViewModel.getString().observe(getViewLifecycleOwner(), String ->{
+      et_text.setText(String);
+    });
 
     btnPost.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-
-        AddPost(et_text.getText().toString());
-
+        mViewModel.setPostText(et_text.getText().toString());
+        mViewModel.addPost();
       }
     });
   }
-    private void AddPost(String text) {
 
-      auth = FirebaseAuth.getInstance();
-      firestore = FirebaseFirestore.getInstance();
-      userid = Objects.requireNonNull(auth.getCurrentUser()).getUid();
-      Timestamp time = Timestamp.now();
-
-      HashMap<String, Object> hashMap = new HashMap<>();
-      hashMap.put("idPost", userid);
-      hashMap.put("idUser", userid);
-      hashMap.put("textPost", text);
-      hashMap.put("timePublish",time);
-
-      HashMap<String, Object> mapComment = new HashMap<>();
-      mapComment.put("userid", new String("testUser"));
-      mapComment.put("commentText",new String("testText"));
-      hashMap.put("comments", mapComment);
-      firestore.collection("Posts").add(hashMap).addOnSuccessListener(
-        new OnSuccessListener<DocumentReference>() {
-        @Override
-        public void onSuccess(DocumentReference documentReference) {
-          documentReference.update("idPost",documentReference.getId());
-          Toast.makeText(getContext(), "id" + documentReference.getId(), Toast.LENGTH_SHORT).show();
-        }
-      });
-      et_text.setText("");
-    }
 
 }

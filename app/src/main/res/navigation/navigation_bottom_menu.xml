@@ -10,9 +10,7 @@
     android:label="Feed"
     android:name="com.to_panelka.webnote.ui.feed.FeedFragment"
     tools:layout="@layout/fragment_feed">
-    <action
-      android:id="@+id/action_navigation_feed_to_commentsFragment2"
-      app:destination="@id/commentsFragment" />
+
   </fragment>
 
   <fragment
@@ -32,6 +30,9 @@
     <action
       android:id="@+id/action_navigation_profile_to_navigation_settings"
       app:destination="@id/navigation_settings" />
+    <action
+      android:id="@+id/action_navigation_profile_to_navigation_comment"
+      app:destination="@id/navigation_comment" />
   </fragment>
   <fragment
     android:id="@+id/navigation_settings"
@@ -43,10 +44,8 @@
       app:destination="@id/navigation_profile" />
   </fragment>
   <fragment
-    android:id="@+id/commentsFragment"
+    android:id="@+id/navigation_comment"
     android:name="com.to_panelka.webnote.ui.comments.CommentsFragment"
-    android:label="fragment_comment"
+    android:label="Comment"
     tools:layout="@layout/fragment_comments" />
-
-
 </navigation>

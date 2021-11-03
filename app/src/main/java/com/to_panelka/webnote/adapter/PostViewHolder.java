@@ -1,5 +1,6 @@
 package com.to_panelka.webnote.adapter;
 
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -11,10 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.Timestamp;
 import com.to_panelka.webnote.R;
 import com.to_panelka.webnote.ui.comments.CommentsFragment;
+import com.to_panelka.webnote.ui.feed.FeedFragment;
 import com.to_panelka.webnote.ui.profile.ProfileFragment;
 
 public class PostViewHolder extends RecyclerView.ViewHolder{
   private View defaultView;
+  private String idPost;
 
   public PostViewHolder(View view){
     super(view);
@@ -25,12 +28,16 @@ public class PostViewHolder extends RecyclerView.ViewHolder{
       public void onClick(View v) {
         AppCompatActivity activity = (AppCompatActivity) view.getContext();
         Fragment fragment = new CommentsFragment();
-        activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_view, fragment).addToBackStack(null).commit();
+        Bundle bundle = new Bundle();
+        bundle.putString("idPost",idPost);
+        fragment.setArguments(bundle);
+        activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_view, fragment).addToBackStack("Comments").commit();
       }
     });
   }
-  public void setTextPost(String textPost, String idUser, Timestamp time)
+  public void setDataPost(String idPost,String textPost, String idUser, Timestamp time)
   {
+    this.idPost = idPost;
     TextView viewTextPost = defaultView.findViewById(R.id.post_user_text);
     viewTextPost.setText(textPost);
     TextView viewIdUser = defaultView.findViewById(R.id.post_user_nickname);

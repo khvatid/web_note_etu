@@ -7,21 +7,36 @@
     tools:context=".ui.comments.CommentsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/comments"
-      android:layout_width="409dp"
-      android:layout_height="wrap_content"
+      android:id="@+id/comments_rv"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginBottom="70dp"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"/>
+      app:layout_constraintTop_toTopOf="parent"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     <EditText
-        android:id="@+id/new_comment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/comments"/>
+      android:id="@+id/comments_et"
+      android:layout_width="307dp"
+      android:layout_height="48dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginStart="16dp"
+      android:hint="@string/s_comment"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/comments_rv"
+      app:layout_constraintVertical_bias="0.0" />
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/new_comment"
-        app:layout_constraintTop_toBottomOf="@id/new_comment"
-        android:text="post"/>
+      android:id="@+id/comments_btn_send"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:text="send"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.636"
+      app:layout_constraintStart_toEndOf="@+id/comments_et"
+      app:layout_constraintTop_toBottomOf="@+id/comments_rv"
+      app:layout_constraintVertical_bias="0.3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,6 +55,7 @@ public class ProfileFragment extends Fragment {
     userDescription = view.findViewById(R.id.profile_user_description);
     createPostButton = view.findViewById(R.id.profile_btn_create_post);
     settingProfileButton = view.findViewById(R.id.profile_btn_settings);
+    navController = Navigation.findNavController(view);
     RecyclerView recyclerView = (RecyclerView) view.findViewById((R.id.profile_post_container));
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     Query query = firestore.collection("Posts")
@@ -70,7 +71,7 @@ public class ProfileFragment extends Fragment {
       @Override
       protected void onBindViewHolder(@NonNull PostViewHolder holder, int position,
           @NonNull PostModel model) {
-        holder.setTextPost(model.getTextPost(),model.getIdUser(),model.getTimePublish());
+        holder.setDataPost(model.getIdPost(),model.getTextPost(),model.getNameUser(),model.getTimePublish());
       }
 
       @NonNull
@@ -81,11 +82,6 @@ public class ProfileFragment extends Fragment {
       }
     };
     recyclerView.setAdapter(adapter);
-
-
-
-
-    navController = Navigation.findNavController(view);
 
 
     settingProfileButton.setOnClickListener(new OnClickListener() {

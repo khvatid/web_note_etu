@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -32,6 +34,7 @@ public class FeedFragment extends Fragment {
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
     super.onViewCreated(view, savedInstanceState);
+    NavController navController = Navigation.findNavController(view);
     RecyclerView recyclerView = (RecyclerView) view.findViewById((R.id.feed_posts_recycler_view));
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     Query query = firestore.collection("Posts").orderBy("timePublish",Direction.DESCENDING);
@@ -42,7 +45,7 @@ public class FeedFragment extends Fragment {
       @Override
       protected void onBindViewHolder(@NonNull PostViewHolder holder, int position,
           @NonNull PostModel model) {
-        holder.setTextPost(model.getTextPost(),model.getIdUser(),model.getTimePublish());
+        holder.setDataPost(model.getIdPost(),model.getTextPost(),model.getNameUser(),model.getTimePublish());
       }
 
       @NonNull

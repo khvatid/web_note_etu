@@ -125,7 +125,7 @@ public class RegisterFragment extends Fragment {
           hashMap.put("idUser", userid);
           hashMap.put("username", name);
           hashMap.put("description",description);
-
+          hashMap.put("email", email);
 
           firestore.collection("Users").document(userid).set(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

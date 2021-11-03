@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <ImageView
-        android:layout_width="20dp"
-        android:layout_height="20dp"/>
+
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:layout_marginLeft="3dp"
-        android:text="@string/s_user_name"/>
-    </LinearLayout>
+      android:id="@+id/cmnt_tv_username"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="TextView" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/s_comment"/>
+      android:id="@+id/cmnt_tv_text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="TextView" />
 </LinearLayout>

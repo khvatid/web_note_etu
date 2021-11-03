@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:orientation="vertical"
     android:padding="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -19,8 +18,8 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/s_user_name"
-      android:textColor="@color/black"
-      android:textSize="16sp"
+      android:textStyle="bold"
+      android:textSize="20sp"
       app:layout_constraintStart_toEndOf="@+id/post_user_image"
       app:layout_constraintTop_toTopOf="@+id/post_user_image"
       android:layout_marginStart="8dp"/>
