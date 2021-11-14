@@ -62,7 +62,7 @@ public class PostCreateViewModel extends ViewModel {
             transaction.set(docPost,new PostModel());
             transaction.update(docPost,"idPost",snapshotPost.getId());
             transaction.update(docPost,"nameUser",snapshotUser.get("username"));
-            transaction.update(docPost,"idUser", snapshotUser.get("userid"));
+            transaction.update(docPost,"idUser", snapshotUser.get("idUser"));
             transaction.update(docPost,"textPost",postText.getValue());
             transaction.update(docPost,"timePublish",timestamp);
             return null;

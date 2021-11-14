@@ -29,7 +29,7 @@
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
       android:layout_marginEnd="8dp"
-
+android:textColor="?attr/colorOnBackground"
       android:layout_alignParentEnd="true"
       android:layout_toEndOf="@+id/profile_user_image"
       android:text="@string/s_user_name"
@@ -84,14 +84,16 @@
 
   </LinearLayout>
   <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/profile_post_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="170dp"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    android:id="@+id/profile_post_container"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/profile_buttons_container"
-    tools:layout_editor_absoluteX="1dp" />
+    app:layout_constraintEnd_toEndOf="parent"
+
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/profile_buttons_container" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

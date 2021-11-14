@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.23108108108108108" />
+        <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/drawable/ic_bg.xml" value="0.23986486486486486" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/drawable/ic_launcher_background.xml" value="0.23108108108108108" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/drawable/ic_menu_feed_24.xml" value="0.23986486486486486" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/drawable/ic_menu_profile_24.xml" value="0.23986486486486486" />
@@ -27,7 +28,7 @@
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_register.xml" value="0.22709030100334449" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_settings.xml" value="0.15033783783783783" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/fragment_settings_profile.xml" value="0.25" />
-        <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/item_comment.xml" value="0.5" />
+        <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/item_comment.xml" value="0.25" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/item_post.xml" value="0.33" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/main_head.xml" value="0.16013513513513514" />
         <entry key="..\:/Users/hv200/Desktop/IntelliJ/WebNote/app/src/main/res/layout/post_author.xml" value="0.16182432432432434" />

@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.Query.Direction;
@@ -45,7 +46,10 @@ public class FeedFragment extends Fragment {
       @Override
       protected void onBindViewHolder(@NonNull PostViewHolder holder, int position,
           @NonNull PostModel model) {
-        holder.setDataPost(model.getIdPost(),model.getTextPost(),model.getNameUser(),model.getTimePublish());
+        if(model.getIdUser().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
+          holder.setDataPost(model.getIdPost(),model.getTextPost(),model.getNameUser(),model.getTimePublish(), true);
+        else
+          holder.setDataPost(model.getIdPost(),model.getTextPost(),model.getNameUser(),model.getTimePublish(), false);
       }
 
       @NonNull

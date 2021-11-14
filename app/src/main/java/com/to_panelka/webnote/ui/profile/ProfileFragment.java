@@ -71,9 +71,11 @@ public class ProfileFragment extends Fragment {
       @Override
       protected void onBindViewHolder(@NonNull PostViewHolder holder, int position,
           @NonNull PostModel model) {
-        holder.setDataPost(model.getIdPost(),model.getTextPost(),model.getNameUser(),model.getTimePublish());
+        if(model.getIdUser().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
+          holder.setDataPost(model.getIdPost(),model.getTextPost(),model.getNameUser(),model.getTimePublish(), true);
+        else
+          holder.setDataPost(model.getIdPost(),model.getTextPost(),model.getNameUser(),model.getTimePublish(), false);
       }
-
       @NonNull
       @Override
       public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -96,8 +98,6 @@ public class ProfileFragment extends Fragment {
          navController.navigate(R.id.action_navigation_profile_to_navigation_new_post);
       }
     });
-    auth = FirebaseAuth.getInstance();
-    firestore = FirebaseFirestore.getInstance();
     firestore.collection("Users").
         document(Objects.requireNonNull(auth.getCurrentUser()).getUid()).get().
         addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

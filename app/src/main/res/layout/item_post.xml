@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="8dp"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_margin="4dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+  android:background="@drawable/ic_bg">
     <ImageView
       android:id="@+id/post_user_image"
       android:layout_width="48dp"
@@ -18,6 +20,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/s_user_name"
+      android:textColor="?attr/colorOnBackground"
       android:textStyle="bold"
       android:textSize="20sp"
       app:layout_constraintStart_toEndOf="@+id/post_user_image"
@@ -42,28 +45,40 @@
       android:text="@string/s_description"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      android:textColor="@color/purple_500"
+      android:textColor="?attr/colorOnBackground"
       android:textSize="16sp"
       app:layout_constraintTop_toBottomOf="@+id/post_user_image" />
     <Button
+      android:id="@+id/button3"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
-      android:layout_marginStart="4dp"
+      android:layout_margin="8dp"
+      android:background="@drawable/ic_bg"
       android:text="like"
-
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/post_user_text" />
     <Button
       android:id="@+id/itm_post_btn_comment"
+      style="@style/Widget.MaterialComponents.Button.TextButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="8dp"
+      android:layout_margin="8dp"
       android:text="@string/s_comment"
-      style="@style/Widget.MaterialComponents.Button.TextButton"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/post_user_text" />
+    <Button
+      android:id="@+id/itm_post_btn_delete"
+      style="@style/Widget.MaterialComponents.Button.TextButton"
+      android:layout_width="wrap_content"
+      android:layout_height="35dp"
+      android:layout_margin="8dp"
+      android:text="delete"
+      android:textColor="?attr/colorError"
+      android:visibility="gone"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
